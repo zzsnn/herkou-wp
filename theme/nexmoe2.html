@@ -22,12 +22,11 @@
     <link rel="shortcut icon" href="<!--base_path-->favicon.ico" type="image/x-icon">
 
 	 <style>
-		body{<!--BackgroundStart-->background-repeat:no-repeat;background-size:cover;background-attachment:fixed;background-image:url("<!--BackgroundUrl-->");<!--BackgroundEnd-->}
 		.mdui-appbar .mdui-toolbar{
 			height:64px;
 			font-size: 15px;
 		}
-		.mdui-toolbar>*{
+       	.mdui-toolbar>*{
 			padding: 0 6px;
 			margin: 0 2px;
 			opacity:0.5;
@@ -67,13 +66,13 @@
         	}
 		.mdui-video-fluid {
             height: -webkit-fill-available;
-		}
+        }
 		.dplayer-video-wrap .dplayer-video {
 			height: -webkit-fill-available !important;
 		}
-		.gslide iframe, .gslide video {
+        .gslide iframe, .gslide video {
             height: -webkit-fill-available;
-		}
+        }
 		@media screen and (max-width:950px)	{		
 			.mdui-list-item .mdui-text-right{
 				display: none;
@@ -110,9 +109,7 @@
                 <a href="<!--PathArrayLink-->"><!--PathArrayName--></a>
 <!--PathArrayEnd-->
             <div class="mdui-toolbar-spacer"></div>
-<!--ShowThumbnailsStart-->
             <a href="javascript:thumb();" id="thumb" class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: '切换显示'}"><i class="mdui-icon material-icons">format_list_bulleted</i></a>
-<!--ShowThumbnailsEnd-->
         </div>
 	</header>
 
@@ -139,9 +136,30 @@
         </a>
 <!--MultiDisksEnd-->
 <!--MultiDiskAreaEnd-->
-        <a href="https://github.com/qkqpttgf/OneManager-php" class="mdui-list-item mdui-ripple">
-            <i class="mdui-list-item-icon mdui-icon material-icons">code</i>
+        <a href="https://zzsncloud.herokuapp.com/Windows%E5%BA%94%E7%94%A8/" class="mdui-list-item mdui-ripple">
+            <i class="mdui-list-item-icon mdui-icon material-icons">cloud</i>
+            <div class="mdui-list-item-content">windows应用</div>
+        <a href="https://zzsncloud.herokuapp.com/IOS%E5%BA%94%E7%94%A8/" class="mdui-list-item mdui-ripple">
+            <i class="mdui-list-item-icon mdui-icon material-icons">cloud</i>
+            <div class="mdui-list-item-content">IOS应用</div>
+        <a href="https://zzsncloud.herokuapp.com/Android%E5%BA%94%E7%94%A8/" class="mdui-list-item mdui-ripple">
+            <i class="mdui-list-item-icon mdui-icon material-icons">cloud</i>
+            <div class="mdui-list-item-content">Android应用</div>
+        <a href="https://zzsnn.github.io/" class="mdui-list-item mdui-ripple">
+            <i class="mdui-list-item-icon mdui-icon material-icons">cloud</i>
+            <div class="mdui-list-item-content">个人博客</div>
+        <a href="https://sourl.cn/aZYqnC" class="mdui-list-item mdui-ripple">
+            <i class="mdui-list-item-icon mdui-icon material-icons">cloud</i>
+            <div class="mdui-list-item-content">免费图床</div>
+        <a href="http://zzsnkod.66ghz.com/" class="mdui-list-item mdui-ripple">
+            <i class="mdui-list-item-icon mdui-icon material-icons">cloud</i>
+            <div class="mdui-list-item-content">私人云盘</div>
+        <a href="https://github.com/zzsnn/" class="mdui-list-item mdui-ripple">
+            <i class="mdui-list-item-icon mdui-icon material-icons">cloud</i>
             <div class="mdui-list-item-content">Github</div>
+        <a href="更多请等待" class="mdui-list-item mdui-ripple">
+            <i class="mdui-list-item-icon mdui-icon material-icons">cloud</i>
+            <div class="mdui-list-item-content">更多请等待</div>
         </a>
 	</div>
 </div>
@@ -319,8 +337,8 @@
 		</li>
 <!--FolderListEnd-->
 <!--FileListStart-->
-		<li class="mdui-list-item file mdui-ripple" data-sort data-sort-name="<!--FileEncodeReplaceName-->" data-sort-date="<!--lastModifiedDateTime-->" data-sort-size="<!--size-->" data-readypreview="<!--FileExt-->">
-			<a class="<!--FileExtType-->" data-name="<!--FileEncodeReplaceName-->" href="<!--FileEncodeReplaceUrl-->?preview" target="_blank">
+		<li class="mdui-list-item file mdui-ripple" data-sort data-sort-name="<!--FileEncodeReplaceName-->" data-sort-date="<!--lastModifiedDateTime-->" data-sort-size="<!--size-->">
+			<a data-name="<!--FileEncodeReplaceName-->" href="<!--FileEncodeReplaceUrl-->?preview" target="_blank">
               <!--<?php if(isImage($item['name']) and $_COOKIE["image_mode"] == "1"):?>
 			  <img class="mdui-img-fluid" src="<?php echo get_absolute_path($root.$path).rawurlencode($item['name']); ?>">
               <?php else:?>-->
@@ -333,7 +351,7 @@
 		  	</a>
 		  	
 			<div class="forcedownload "  >
- 			      <a title="<!--constStr@Download-->" href="<!--FileEncodeReplaceUrl-->">
+ 			      <a title="直接下载" href="<!--FileEncodeReplaceUrl-->">
 			          <button class="mdui-btn mdui-ripple mdui-btn-icon"><i class="mdui-icon material-icons">file_download</i></button>
 			      </a>
 			</div>
@@ -341,24 +359,20 @@
 <!--FileListEnd-->
 
 <!--MorePageStart-->
-<form action="" method="POST" id="nextpageform">
-    <input type="hidden" id="pagenum" name="pagenum" value="">
 		  <li class="mdui-list-item th">
 		    <div class="mdui-col-sm-6 mdui-left mdui-text-left">
 <!--PrePageStart-->
-		        <a onclick="nextpage(<!--PrePageNum-->);" class="mdui-btn mdui-btn-raised"><!--constStr@PrePage--></a>
+		        <a href="<?php echo preg_replace('/\/$/', '', "$root"); ?><?php e($path) ?>.page-<?php e($page-1) ?>/" class="mdui-btn mdui-btn-raised">上一页</a>
 <!--PrePageEnd-->
 <!--NextPageStart-->
-		        <a onclick="nextpage(<!--NextPageNum-->);" class="mdui-btn mdui-btn-raised"><!--constStr@NextPage--></a>
+		        <a href="<?php echo preg_replace('/\/$/', '', "$root"); ?><?php e($path) ?>.page-<?php e($page+1) ?>/" class="mdui-btn mdui-btn-raised">下一页</a>
 <!--NextPageEnd-->
 		    </div>
 		    <div class="mdui-col-sm-6 mdui-right mdui-text-right">
-		      <div class="mdui-right mdui-text-right"><span class="mdui-chip-title">Page: <!--MorePageListStart--><!--MorePageListEnd--><!--MorePageListNowStart--><!--PageNum--><!--MorePageListNowEnd-->/<!--MaxPageNum--></span></div>
-            </div>
-          </li>
-        </form>
+		      <div class="mdui-right mdui-text-right"><span class="mdui-chip-title">Page: <?php e($page);?>/<?php e($totalpage);?></span></div>
+		    </div>
+		  </li>
 <!--MorePageEnd-->
-
 	</ul>
 </div>
 </div>
@@ -383,27 +397,19 @@
 <script src="//cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
 <script>
-<!--MorePageStart-->
-    function nextpage(num) {
-        document.getElementById('pagenum').value=num;
-        document.getElementById('nextpageform').submit();
-    }
-<!--MorePageEnd-->
 var $$ = mdui.JQ;
 $$(function() {
     $$('.file .iframe').each(function() {
         $$(this).on('click', function() {
-            url=$$(this).attr('href');
-            //url=url.substr(0,url.length-8);
             layer.open({
               type: 2,
-              title: '<a target="_blank" href="'+url+'">'+ $$(this).find('span').text()+'(点击新窗口打开)</a>', //jia,
+              title: '<a target="_blank" href="'+$$(this).attr('href')+"<?php echo ((config('root_path') == '?')?'&s':'?s'); ?>"+'">'+ $$(this).find('span').text()+'(点击新窗口打开)</a>', //jia,
               //shadeClose: true,
               move: false,
               shade: false,
               maxmin: true, 
               area: ['100%', '100%'],
-              content: url //le
+              content: $$(this).attr('href')+"<?php echo ((config('root_path') == '?')?'&s':'?s'); ?>" //le
               ,min: function(layero){
                   //zi;  
                   layero.css({top: '90%'})
@@ -441,7 +447,7 @@ TC.preview_audio = function(aud){
                 }
                 TC.aplayerList.push({
                     name:n,
-                    url:this.href.substr(0,this.href.length-8),
+                    url:this.href,
                     artist:" ",
                     lrc:lrc
                 });
@@ -507,7 +513,7 @@ function downall() {
      a.click() // 模拟点击
      a.remove();
 }
-<!--ShowThumbnailsStart-->
+
 function thumb(){
 	if($('#thumb i').text() == "apps"){
 		$('#thumb i').text("format_list_bulleted");
@@ -518,20 +524,17 @@ function thumb(){
 		$('#thumb i').text("apps");
 		$('.nexmoe-item').addClass('thumb');
 		$('.mdui-col-xs-12 i.mdui-icon').each(function(){
-			//if($(this).text() == "image" || $(this).text() == "ondemand_video"){
-            if($(this).text() == "image"){
-				var thumbnails = $(this).parent().parent().attr('href');
-				//var thumb =(href.indexOf('?') == -1)?'?t=220':'&t=220';
-                thumbnails = thumbnails.substr(0, thumbnails.length-8)+'?thumbnails&location';
+			if($(this).text() == "image" || $(this).text() == "ondemand_video"){
+				var href = $(this).parent().parent().attr('href');
+				var thumb =(href.indexOf('?') == -1)?'?t=220':'&t=220';
 				$(this).hide();
-				//$(this).parent().parent().parent().css("background","url("+href+thumb+")  no-repeat center top");
-                $(this).parent().parent().parent().css("background","url("+thumbnails+")  no-repeat center top");
+				$(this).parent().parent().parent().css("background","url("+href+thumb+")  no-repeat center top");
 			}
 		});
 	}
 
-}
-<!--ShowThumbnailsEnd-->
+}	
+
 $(function(){
 
 
