@@ -1,10 +1,8 @@
-<!--IconValuesStart-->
-{
-    "music":"audiotrack",
-    "video":"ondemand_video",
-    "img":"image",
-    "default":"insert_drive_file"
-}
+<?php 
+require("hm.php");
+$_hmt = new _HMT("c60182bd450ddbd13ccc5b546e951726");
+$_hmtPixel = $_hmt->trackPageView();
+?>
 <!--IconValuesEnd-->
 <!DOCTYPE html>
 <html lang="<!--constStr@language-->">
@@ -19,6 +17,7 @@
 	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
 	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
 	<link rel="icon" href="<!--base_path-->favicon.ico" type="image/x-icon">
+                <img src="<?php echo $_hmtPixel; ?>" width="0" height="0" />
     <link rel="shortcut icon" href="<!--base_path-->favicon.ico" type="image/x-icon">
 
 	 <style>
