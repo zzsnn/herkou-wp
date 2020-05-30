@@ -13,7 +13,7 @@
     <style type="text/css">
         body{margin:0;padding:0;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:14px;line-height:1em;color:#000;background-color:#F9FAFB;}
         .topbar{width:100%;height:40px;background-color:#463C6A;}
-        .topbar .login{display:block;line-height:40px;color:#ffffff;margin-left:10%;float:left;}
+        .topbar .login{display:block;line-height:40px;color:#ffffff;margin-left:2%;float:left;}
         .topbar .login ion-icon{display:block;height:40px;line-height:40px;margin-right:5px;float:left;}
         .topbar .operate{display:block;line-height:40px;color:#ffffff;margin-left:2%;float:left;}
         .topbar .operate ul{}
