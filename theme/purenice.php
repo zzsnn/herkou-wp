@@ -15,12 +15,12 @@
         .topbar{width:100%;height:40px;background-color:#463C6A;}
         .topbar .login{display:block;line-height:40px;color:#ffffff;margin-left:10%;float:left;}
         .topbar .login ion-icon{display:block;height:40px;line-height:40px;margin-right:5px;float:left;}
-        .topbar .operate{display:block;line-height:40px;color:#ffffff;margin-left:10%;float:left;}
+        .topbar .operate{display:block;line-height:40px;color:#ffffff;margin-left:2%;float:left;}
         .topbar .operate ul{}
         .topbar .operate ion-icon{display:block;height:40px;line-height:40px;margin-right:5px;float:left;}
         a{color:#171D33;cursor:pointer;text-decoration:none;}
         ion-icon{font-size:15px;vertical-align:middle;}
-        .changelanguage{display:block;height:30px;line-height:30px;float:right;margin-right:10%;margin-top:5px;}
+        .changelanguage{display:block;height:30px;line-height:30px;float:right;margin-right:2%;margin-top:5px;}
         .title{text-align:center;margin-top:1rem;letter-spacing:2px;margin-bottom:2rem;}
         .title a{color:#171D33;line-height:42px;font-size:32px;text-decoration:none}
         .list-wrapper{width:80%;margin:0 auto;position:relative;}
