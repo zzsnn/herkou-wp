@@ -1287,31 +1287,7 @@ var _hmt = _hmt || [];
 						<!--网站首页弹窗开始-->
 						<script>
 						
-						swal('欢迎来到：折纸少年','\n欢迎来到“一个无人知晓的网站”！\n\n博客地址：http://zzsnn.github.io\n\nCDN视频解析·苹果·安卓·PC·聚合图床·域名防红各种破解资源！\n\n本站所发布的一切软件仅限用于学习和研究目的！\n\n如果您喜欢该程序,请支持正版软件！','success'); function AddFavorite(title, url) {
-						
-						  try {
-						
-							  window.external.addFavorite(url, title);
-						
-						  }
-						
-						catch (e) {
-						
-							 try {
-						
-							   window.sidebar.addPanel(title, url,);
-						
-							}
-						
-							 catch (e) {
-						
-								 alert("抱歉，您所使用的浏览器无法完成此操作。");
-						
-							 }
-						
-						  }
-						
-						}
+						swal('欢迎来到：折纸少年','\n欢迎来到“一个无人知晓的网站”！\n\n博客地址：http://zzsnn.github.io\n\nCDN视频解析·苹果·安卓·PC·聚合图床·域名防红各种破解资源！\n\n本站所发布的一切软件仅限用于学习和研究目的！\n\n如果您喜欢该程序,请支持正版软件！','success'); function AddFavorite(title, url) 
 						
 						</script>
 						<!--网站首页弹窗结束-->
