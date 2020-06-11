@@ -12,44 +12,6 @@ var _hmt = _hmt || [];
 })();
 </script>
 <head>
-						<script src="https://zzsnn.github.io/assets/js/sweetalert.min.js"></script>
-						<script src="https://zzsnn.github.io/assets/js/sweetalert.min.css"></script>
-						</head>
-						<div class="text" style=" text-align:center;">
-						<body>
-						</body>
-						<!--网站首页弹窗开始-->
-						<script>
-						
-						swal('欢迎来到：折纸少年','\n欢迎来到“一个无人知晓的网站”！\n\n博客地址：http://zzsnn.github.io\n\nCDN视频解析·苹果·安卓·PC·聚合图床·域名防红各种破解资源！\n\n本站所发布的一切软件仅限用于学习和研究目的！\n\n如果您喜欢该程序,请支持正版软件！','success'); function AddFavorite(title, url) {
-						
-						  try {
-						
-							  window.external.addFavorite(url, title);
-						
-						  }
-						
-						catch (e) {
-						
-							 try {
-						
-							   window.sidebar.addPanel(title, url,);
-						
-							}
-						
-							 catch (e) {
-						
-								 alert("抱歉，您所使用的浏览器无法完成此操作。");
-						
-							 }
-						
-						  }
-						
-						}
-						
-						</script>
-						<!--网站首页弹窗结束-->
-<head>
     <title><?php echo $pretitle; if ($_SERVER['base_disk_path']!=$_SERVER['base_path']) { if (getConfig('diskname')!='') $diskname = getConfig('diskname'); else $diskname = $_SERVER['disktag']; echo ' - ' . $diskname; } ?> - <?php echo $_SERVER['sitename'];?></title>
     <meta charset=utf-8>
     <meta http-equiv=X-UA-Compatible content="IE=edge">
@@ -1315,5 +1277,43 @@ var _hmt = _hmt || [];
     }
 <?php } ?>
 </script>
+<head>
+						<script src="https://zzsnn.github.io/assets/js/sweetalert.min.js"></script>
+						<script src="https://zzsnn.github.io/assets/js/sweetalert.min.css"></script>
+						</head>
+						<div class="text" style=" text-align:center;">
+						<body>
+						</body>
+						<!--网站首页弹窗开始-->
+						<script>
+						
+						swal('欢迎来到：折纸少年','\n欢迎来到“一个无人知晓的网站”！\n\n博客地址：http://zzsnn.github.io\n\nCDN视频解析·苹果·安卓·PC·聚合图床·域名防红各种破解资源！\n\n本站所发布的一切软件仅限用于学习和研究目的！\n\n如果您喜欢该程序,请支持正版软件！','success'); function AddFavorite(title, url) {
+						
+						  try {
+						
+							  window.external.addFavorite(url, title);
+						
+						  }
+						
+						catch (e) {
+						
+							 try {
+						
+							   window.sidebar.addPanel(title, url,);
+						
+							}
+						
+							 catch (e) {
+						
+								 alert("抱歉，您所使用的浏览器无法完成此操作。");
+						
+							 }
+						
+						  }
+						
+						}
+						
+						</script>
+						<!--网站首页弹窗结束-->
 <script src="//unpkg.zhimg.com/ionicons@4.4.4/dist/ionicons.js"></script>
 </html>
