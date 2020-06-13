@@ -1,101 +1,365 @@
-
-<!-- theme purenice designed & coded by wendale v1.1 Responsive fixed on May 1st-->
 <!DOCTYPE html>
 <html lang="<?php echo $constStr['language']; ?>">
 <head>
     <title><?php echo $pretitle; if ($_SERVER['base_disk_path']!=$_SERVER['base_path']) { if (getConfig('diskname')!='') $diskname = getConfig('diskname'); else $diskname = $_SERVER['disktag']; echo ' - ' . $diskname; } ?> - <?php echo $_SERVER['sitename'];?></title>
-    <meta charset=utf-8>
+    <meta charset="utf-8">
     <meta http-equiv=X-UA-Compatible content="IE=edge">
     <meta name=viewport content="width=device-width,initial-scale=1">
     <meta name="keywords" content="<?php echo $n_path;?>,<?php if ($p_path!='') echo $p_path.','; echo $_SERVER['sitename'];?>,OneManager,auth_by_逸笙">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net/" />
     <link rel="icon" href="<?php echo $_SERVER['base_disk_path'];?>favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="<?php echo $_SERVER['base_disk_path'];?>favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalizecss@3.0.0/normalize.min.css" />
+    <link rel="stylesheet" href="https://fonts.loli.net/css?family=Roboto:100,400,700" />
     <style type="text/css">
-        body{margin:0;padding:0;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:14px;line-height:1em;color:#000;background-color:#F9FAFB;}
-        .topbar{width:100%;height:40px;background-color:#463C6A;}
-        .topbar .login{display:block;line-height:40px;color:#ffffff;margin-left:10%;float:left;}
-        .topbar .login ion-icon{display:block;height:40px;line-height:40px;margin-right:5px;float:left;}
-        .topbar .operate{display:block;line-height:40px;color:#ffffff;margin-left:10%;float:left;}
-        .topbar .operate ul{}
-        .topbar .operate ion-icon{display:block;height:40px;line-height:40px;margin-right:5px;float:left;}
-        a{color:#171D33;cursor:pointer;text-decoration:none;}
-        ion-icon{font-size:15px;vertical-align:middle;}
-        .changelanguage{display:block;height:30px;line-height:30px;float:right;margin-right:10%;margin-top:5px;}
-        .title{text-align:center;margin-top:1rem;letter-spacing:2px;margin-bottom:2rem;}
-        .title a{color:#171D33;line-height:42px;font-size:32px;text-decoration:none}
-        .list-wrapper{width:80%;margin:0 auto;position:relative;}
-        .list-container{position:relative;}
-        .list-header-container{position:relative;width:100%;}
-        .list-header-container a.back-link{position:absolute;float:left;color:#ffffff;display:inline-block;margin:10px;height:40px;width:40px;background:#613EEA;line-height:40px;text-decoration:none;text-align:center;border-radius:20px;box-shadow: 0px 4px 12px rgba(97, 62, 234, 0.5);}
-        .list-header-container a.back-link ion-icon{font-size:20px;}
-        .list-header-container a.back-link:hover{color:white}
-        .list-container,.list-header-container,.list-wrapper,a.back-link:hover,body{color:#24292e}
-        .table-header{display:block;float:left;margin:10px 0 0 60px;height:40px;line-height:40px;text-align:left;font-weight:400;color:#A0A4B0;word-break: break-all;word-wrap: break-word;}
-        .fix{height:60px;}
-        .list-body-container{position:relative;left:0;overflow-x:hidden;overflow-y:auto;box-sizing:border-box;}
-        .more-disk{border-bottom:1px solid #E8E9EC;height:40px;white-space:nowrap;overflow:auto;}
-        .more-disk a{display:block;float:left;width:30%;height:38px;text-align:center;font-weight: bold;font-size: 18px;line-height:38px;color:#A6AAB4; }
-        .more-disk a:hover, .more-disk a[now]{ color: #3B414B;border-bottom:2px solid #FF7D00;}
-        .list-table{width:100%;border-spacing:0;margin-bottom:20px;}
-        .list-table tr{display:block;margin:10px 10px;width:96%;float:left;background:#ffffff;box-shadow: 0px 4px 26px rgba(0, 0, 0, 0.06);border-radius: 6px;}
-        .list-table tr[data-to]:hover{background:#10C971;color:white;}
-        .list-table tr[data-to]:hover a{color:white}
-        .list-table td,.list-table th{display:block;float:left;line-height:60px;text-align:left;}
-        .list-table td button,.list-table th button{cursor:pointer;color:#ffffff;height:30px;background:#FF7D00;padding:0 20px;border-width:0;border-radius:6px;box-shadow: 0px 4px 12px rgba(255, 125, 0, 0.5);}
-        .list-table td.file,.list-table th.file{width:60%;color:#171D33;padding-left:20px;}
-        .list-table td.file ion-icon{float:left;margin-top:22px;margin-right:5px;}
-        .list-table td.file:hover>ion-icon,.list-table td.file:hover .operate>ion-icon{color:#fff;}
-        .list-table td.file a[name="filelist"]{float:left;}
-        .list-table td.file a[name="filelist"] img{border-radius:6px;margin-top:20px;}
-        .list-table td.updated_at,.list-table th.updated_at{width:25%;}
-        .list-table td.size,.list-table th.size{width:10%;}
-        .list-table .size,.list-table .updated_at{text-align:right}
-        .mask{position:absolute;left:0px;top:0px;width:100%;background-color:#000;filter:alpha(opacity=50);opacity:0.5;z-index:2;}
+.loading-box {
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+.lds-ring {
+    display: inline-block;
+    position: relative;
+    width: 40px;
+    height: 40px;
+}
+
+.lds-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    margin: 4px;
+    border: 4px solid #000;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #000 transparent transparent transparent;
+}
+
+.lds-ring div:nth-child(1) {
+    animation-delay: -0.45s;
+}
+
+.lds-ring div:nth-child(2) {
+    animation-delay: -0.3s;
+}
+
+.lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+}
+
+@keyframes lds-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* loading */
+a {
+    text-decoration: none;
+    color: #000
+}
+
+.upload_style {
+    border-radius: .1em;
+    background: #FAFAFB;
+    padding: 1em
+}
+
+#upload_file {
+    display: inline-block;
+    width: 75%
+}
+
+#upload_submit {
+    display: inline-block;
+    width: 22%
+}
+
+button,
+select,
+input[type=submit],
+input[type=button],
+.pagination .updated_at a {
+    transition: all 1s;
+    outline: none;
+    background: #66CCFF;
+    color: #FFF;
+    border-style: none;
+    border-radius: .2em;
+    padding: .5em 1em;
+}
+.pagination .updated_at a {
+    display: inline-block;
+    text-align: center;
+    padding: 4px;
+    width: 1.2em;
+    height: 1.2em
+}
+
+button:hover,
+select:hover,
+input[type=submit]:hover,
+input[type=button]:hover,
+.pagination .updated_at a:hover,
+textarea {
+    opacity:0.5;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+input[type=text],
+input[type=password],
+textarea {
+    outline: none;
+    border-style: none;
+    border-bottom: 2px solid #E8E9EC;
+    height: 2em;
+}
+
+* {
+    font-family: "Microsoft YaHei", 微软雅黑;
+    font-family:  Roboto, Impact, Charcoal, sans-serif;
+    max-width: 100%;
+    overflow: auto;
+    word-break: break-all
+}
+
+.topbar {
+    width: 100%;
+    height: 3.5em;
+    background-color: #FAFAFB;
+}
+
+.topbar .login {
+    display: inline;
+    line-height: 3.5em;
+}
+
+.topbar .title {
+    display: inline-block;
+    margin-left: .5em;
+    font-weight: lighter;
+    font-size: 1.5em
+}
+
+.title a {
+    color: black;
+}
+
+.topbar .changelanguage {
+    display: inline-block;
+    float: right
+}
+
+.list-wrapper {
+    max-width: 45em;
+    width: 90%;
+    margin: auto;
+}
+
+.more-disk {}
+
+.more-disk a {
+    display: inline-block;
+    margin: 4px 2px;
+    font-size: 1.5em;
+    min-width: 4em;
+    overflow: auto;
+    border-bottom: solid 2px #dddddd;
+    color: deepskyblue
+}
+
+.more-disk a[now] {
+    border-bottom: solid 2px black;
+}
+
+.table-header {
+    /* path */
+    display: inline;
+    font-size: 1em;
+    font-weight: lighter;
+    color: #000
+}
+
+.back-link {
+    /* back */
+    font-size: 1em;
+    font-weight: bold
+}
+
+.list-header-container {
+    margin-bottom: 1em
+}
+
+.list-container,
+.list-body-container,
+.list-table {
+    margin-top: 1em;
+    width: 100%;
+}
+
+#tr0 .file {
+    width: 100%;
+    text-align: left
+}
+.list-table .file {
+    display: block;
+}
+
+.list-table .file a {
+    color: #000
+}
+
+.list-table .updated_at {
+    display: inline-block;
+    color: #ccc;
+    font-size: .625em
+}
+
+.list-table .size {
+    display: inline-block;
+    float: right;
+    color: #ccc;
+    font-size: .625em
+}
+
+[data-to] {
+    /* a true file OR folder item  */
+    cursor: pointer;
+    display: block;
+    transition: background-color 0.5s;
+    padding: 1em
+}
+
+[data-to]:hover {
+    background-color: #FAFAFB
+}
+
+#tr0 {
+    border-style: none;
+    border-bottom: 2px solid #E8E9EC;
+    background-color: lightcyan
+}
+
+.operatediv {
+    transition: all 2s;
+    position: absolute;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    z-index: 2;
+    border-radius: 4px;
+    background-color: #FAFAFB;
+}
+
+.loginstyle {
+    width: 250px;
+    height: 124px;
+}
+
+.loginstyle input[type="password"] {
+    width: 100%;
+    height: 2em;
+    margin: 1.5em auto 1em auto;
+    text-indent: .625em
+}
+
+.loginstyle input[type="password"]::-webkit-input-placeholder {
+    color: #A6AAB4;
+    font-size: 1em;
+}
+
+.loginstyle input[type="submit"] {
+    width: 100%
+}
+
+.operatediv div {
+    padding: 2em;
+}
+
+.operatediv_close {
+    position: absolute;
+    right: .75em;
+    top: .75em;
+}
+
+.readme {
+    padding: .5em;
+    background-color: rgba(245, 245, 245, 0.5);
+}
+
+.markdown-body {
+    padding: 2em;
+    text-align: left
+}
 <?php if ($_SERVER['admin']) { ?>
-        .operate{display:inline-table;margin:0;margin-right:5px;list-style:none;float:left;}
-        .operate ul{position:absolute;display:none;background:#fffaaa;border:0;border-radius:5px;margin:0;padding:0 7px;color:#205D67;z-index:1;box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);}
-        .operate:hover ul{position:absolute;display:inline-table;}
-        .operate ul li{list-style:none;display:block;line-height:40px;}
-        .list-table tr[data-to]:hover .operate ul li a{color:black}
-        .list-table tr[data-to]:hover .operate ul li a ion-icon{margin-top:12px;}
+.operate {
+    transition: all 2s;
+    display: inline-table;
+    margin: 0;
+    margin-right: 5px;
+    list-style: none;
+    float: left;
+}
+
+.operate ul {
+    position: absolute;
+    display: none;
+    background: #FAFAFB;
+    color: #000;
+    border-style: none;
+    border-radius: 2px;
+    margin: 0;
+    padding: .5em;
+    z-index: 1;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+.operate:hover ul {
+    position: absolute;
+    display: inline-table;
+}
+
+.operate ul li {
+    transition:all 1s;
+    list-style: none;
+    display: block;
+    margin: auto .5em;
+    line-height: 2em;
+}
+
+.operate ul li:hover {
+    background: lightcyan
+}
+
+.list-table tr[data-to]:hover .operate ul li a {
+    color: #000
+}
+
+.list-table tr[data-to]:hover .operate ul li a ion-icon {
+    margin-top: .75em;
+}
 <?php } ?>
-        .operatediv{position:absolute;background-color:#ffffff;z-index:2;border-radius:10px;background-color:#F9FAFB;}
-        .loginstyle{width:250px;height:124px;}
-        .loginstyle input[type="password"]{width:244px;height:40px;margin-top:30px;border-radius:6px;outline:none;border: 2px solid #E8E9EC;text-indent:10px}
-        .loginstyle input[type="password"]::-webkit-input-placeholder { color: #A6AAB4;font-size: 16px;}
-        .loginstyle input[type="submit"]{color:#fff;font-size:16px;width:250px;height:40px;margin-top:5px;border-radius:6px;padding:0;cursor:pointer;background:#FF7D00;border-width:0;box-shadow: 0px 4px 12px rgba(255, 125, 0, 0.5);}
-        .operatediv div{margin:16px;}
-        .operatediv_close{position:absolute;right:15px;top:15px;}
-        .readme{padding:8px;background-color:rgba(245,245,245,0.5);}
-        .markdown-body{padding:20px;text-align:left}
-        
-        .update_notice{position:absolute;color:#A6AAB4;left:10%;margin-top:10px;}
-        .upload_style{height:60px;width:96%;margin:10px;background:#ffffff;box-shadow: 0px 4px 26px rgba(0, 0, 0, 0.06);border-radius: 6px;}
-        .upload_style input[type="file"]{display:block;color:#A6AAB4;float:left;height:38px;margin:20px 0 0 20px;outline:none;font-size:14px;text-align:center;}
-        .upload_style input[type="button"]{display:block;color:#fff;float:right;height:60px;width:160px;outline:none;font-size:16px;background:#613EEA;border-radius:6px;border:0;}
-        .upload_style .list-table tr td{line-height:30px;margin:10px 20px;}
-        .upload_style .list-table tr td button{margin-left:10px;}
-        @media only screen and (max-width:480px){
-            .title{margin-bottom:24px}
-            .list-wrapper{width:95%; margin-bottom:24px;}
-            .list-table {padding:8px}
-            .list-table td button,.list-table th button{cursor:pointer;color:#ffffff;height:24px;background:#FF7D00;padding:0 8px;border-width:0;border-radius:6px;box-shadow: 0px 2px 6px rgba(255, 125, 0, 0.5);}
-            .list-table td, .list-table th{white-space:nowrap;overflow:auto;line-height:40px;}
-            .list-table td.file,.list-table th.file{padding-left: 10px;width: 96%;}
-            .size, .updated_at{display:none}
-            .changelanguage{color:#fff;}
-            .list-table td.updated_at,.list-table th.updated_at{width:50%;text-align:left;margin-left:10px;}
-            .list-table td.size,.list-table th.size{width:30%;text-align:left;}
-            .list-table td.file ion-icon{float:left;margin-top:13px;margin-right:5px;}
-            .upload_style input[type="file"]{display:block;color:#A6AAB4;float:left;height:38px;margin:18px 0 0 10px;outline:none;font-size:14px;text-align:center;width:70%;}
-            .upload_style input[type="button"]{display:block;color:#fff;float:right;height:60px;width:25%;outline:none;font-size:16px;background:#613EEA;border-radius:6px;border:0;}
-        }
-        
     </style>
 </head>
 
 <body>
+
+<script>
+       let loadingBox = document.createElement("div");
+       loadingBox.id="loadingBox";
+       loadingBox.innerHTML=`<div class="loading-box"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>`;
+       loadingBox.hidden=true;
+       document.body.prepend(loadingBox);
+</script>
     <div class="topbar">
+      <span class="title">
+        <a href="<?php echo $_SERVER['base_path']; ?>"><?php echo $_SERVER['sitename']; ?></a>
+      </span>
 <?php
     if (getConfig('admin')!='') if (!$_SERVER['admin']) {
         if (getConfig('adminloginpage')=='') { ?>
@@ -128,9 +392,7 @@
     if (isset($_SERVER['needUpdate'])&&$_SERVER['needUpdate']) { ?>
     <div class="update_notice" style='position:absolute;'><?php echo getconstStr('NeedUpdate'); ?></div>
 <?php } ?>
-    <h1 class="title">
-        <a href="<?php echo $_SERVER['base_path']; ?>"><?php echo $_SERVER['sitename']; ?></a>
-    </h1>
+    
 <?php $disktags = explode("|",getConfig('disktag'));
     if (count($disktags)>1) { ?>
     <div class="list-wrapper">
@@ -255,9 +517,12 @@
                     if (isset($_POST['filenum'])) $filenum = $_POST['filenum'];
                     if (!isset($filenum) and isset($files['folder']['page'])) $filenum = ($files['folder']['page']-1)*200;
                     else $filenum = 0; ?>
+                        
+                        <?php if (!(isset($_SERVER['USER'])&&$_SERVER['USER']=='qcloud')) { ?>&nbsp;&nbsp;&nbsp;<button onclick="showthumbnails(this);"><?php echo getconstStr('ShowThumbnails'); ?></button><?php } ?>&nbsp;<button onclick="CopyAllDownloadUrl('.download');"><?php echo getconstStr('CopyAllDownloadUrl'); ?></button>
+                        
                 <table class="list-table" id="list-table">
                     <tr id="tr0">
-                        <th class="file"><a onclick="sortby('a');"><?php echo getconstStr('File'); ?></a><?php if (!(isset($_SERVER['USER'])&&$_SERVER['USER']=='qcloud')) { ?>&nbsp;&nbsp;&nbsp;<button onclick="showthumbnails(this);"><?php echo getconstStr('ShowThumbnails'); ?></button><?php } ?>&nbsp;<button onclick="CopyAllDownloadUrl('.download');"><?php echo getconstStr('CopyAllDownloadUrl'); ?></button></th>
+                        <th class="file"><a onclick="sortby('a');"><?php echo getconstStr('File'); ?></a></th>
                         <th class="updated_at"><a onclick="sortby('time');"><?php echo getconstStr('EditTime'); ?></a></th>
                         <th class="size"><a onclick="sortby('size');"><?php echo getconstStr('Size'); ?></a></th>
                     </tr>
@@ -345,7 +610,7 @@
                 <form action="" method="POST" id="nextpageform">
                     <input type="hidden" id="pagenum" name="pagenum" value="'. $pagenum .'">
                     <table width=100% border=0>
-                        <tr>
+                        <tr class="pagination">
                             <td width=60px align=center>';
                         if ($pagenum!=1) {
                             $prepagenum = $pagenum-1;
@@ -547,12 +812,14 @@
 <?php   }
     } ?>
     <div style="color: rgba(247,247,249,0);"><?php echo date("Y-m-d H:i:s")." ".getconstStr('Week')[date("w")]." ".$_SERVER['REMOTE_ADDR'];?></div>
+    <center><small style="font-weight:100">Theme <a style="color:#ccc" href="https://github.com/Crazy-White/OneManager-theme-minus">minus</a> by <a style="color:#ccc" href="https://blog.poo.li/">Crazy白茫茫</a></small></center>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert@2.1.2/dist/sweetalert.min.js"></script>
 </body>
 <?php if ($files) { ?>
-<?php if (isset($files['children']['head.md'])||isset($files['children']['readme.md'])) { ?><link rel="stylesheet" href="//unpkg.zhimg.com/github-markdown-css@3.0.1/github-markdown.css">
-<script type="text/javascript" src="//unpkg.zhimg.com/marked@0.6.2/marked.min.js"></script><?php } ?>
-<?php if (isset($files['folder']) && $_SERVER['is_guestup_path'] && !$_SERVER['admin']) { ?><script type="text/javascript" src="//cdn.bootcss.com/spark-md5/3.0.0/spark-md5.min.js"></script><?php } ?>
-<?php if ($pdfurl!='') { ?><script src="//cdn.bootcss.com/pdf.js/2.3.200/pdf.min.js"></script><?php } ?>
+<?php if (isset($files['children']['head.md'])||isset($files['children']['readme.md'])) { ?><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@3.0.1/github-markdown.min.css">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/marked@0.6.2/marked.min.js"></script><?php } ?>
+<?php if (isset($files['folder']) && $_SERVER['is_guestup_path'] && !$_SERVER['admin']) { ?><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/spark-md5@3.0.1/spark-md5.min.js"></script><?php } ?>
+<?php if ($pdfurl!='') { ?><script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.3.200/build/pdf.min.js"></script><?php } ?>
 <?php } ?>
 <script type="text/javascript">
     function changelanguage(str)
@@ -664,7 +931,7 @@
     addVideos(['<?php echo $DPvideo;?>']);
 <?php   }
         if ($pdfurl!='') { ?>
-    pdfjsLib.GlobalWorkerOptions.workerSrc = '//cdn.bootcss.com/pdf.js/2.3.200/pdf.worker.min.js';
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@2.3.200/build/pdf.worker.min.js';
     var loadingTask = pdfjsLib.getDocument({ url: '<?php echo $pdfurl;?>', });
     loadingTask.promise.then(function(pdf) {
         var pagenum =  pdf.numPages;
@@ -705,6 +972,10 @@
         $readme.innerHTML = marked(document.getElementById('readme-md').innerText);
     }
     function showthumbnails(obj) {
+        swal("正在获取缩略图", {
+          buttons: false,
+          timer: 1200,
+        });
         var files=document.getElementsByName('filelist');
         for ($i=0;$i<files.length;$i++) {
             str=files[$i].innerText;
@@ -741,7 +1012,7 @@
         tmptextarea.select();
         tmptextarea.setSelectionRange(0, tmptextarea.value.length);
         document.execCommand("copy");
-        alert(tmptextarea.innerHTML+'<?php echo getconstStr('Success'); ?>');
+        swal(tmptextarea.innerHTML+'<?php echo getconstStr('Success'); ?>');
     }
     var sort=0;
     function sortby(string) {
@@ -838,7 +1109,7 @@
     var expires = "expires="+expd.toGMTString();
     document.cookie="timezone="+timezone+"; path=/; "+expires;
     if (timezone!='8') {
-        alert('Your timezone is '+timezone+', reload local timezone.');
+        swal('Your timezone is '+timezone+', reload local timezone.');
         location.href=location.protocol + "//" + location.host + "<?php echo path_format($_SERVER['base_path'] . '/' . $path );?>" ;
     }
 <?php }
@@ -1024,7 +1295,7 @@
                                     //if (xhr4.status==409) filename = filemd5 + file.name.substr(file.name.indexOf('.'));
                                     filename = JSON.parse(xhr4.responseText)['name'];
                                     if (filename=='') {
-                                        alert('<?php echo getconstStr('UploadErrorUpAgain'); ?>');
+                                        swal('<?php echo getconstStr('UploadErrorUpAgain'); ?>');
                                         uploadbuttonshow();
                                         return;
                                     }
@@ -1102,7 +1373,7 @@
             if (str=='') {
                 str=document.getElementById('file_a'+num).getElementsByTagName("img")[0].alt;
                 if (str=='') {
-                    alert('<?php echo getconstStr('GetFileNameFail'); ?>');
+                    swal('<?php echo getconstStr('GetFileNameFail'); ?>');
                     operatediv_close(action);
                     return;
                 }
@@ -1158,7 +1429,7 @@
                     html=JSON.parse(xhr.responseText);
                     addelement(html);
                 }
-            } else alert(xhr.status+'\n'+xhr.responseText);
+            } else swal(xhr.status+'\n'+xhr.responseText);
             document.getElementById(str+'_div').style.display='none';
             document.getElementById('mask').style.display='none';
         }
@@ -1268,5 +1539,6 @@
     }
 <?php } ?>
 </script>
-<script src="//unpkg.zhimg.com/ionicons@4.4.4/dist/ionicons.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/ionicons@4.4.4/dist/ionicons.js"></script>
 </html>
+

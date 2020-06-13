@@ -1,15 +1,6 @@
 
 <!DOCTYPE html>
 <html lang="<?php echo $constStr['language']; ?>">
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?269c55d09d31b7ca60586a52d9845ca2";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
 <head>
     <title><?php echo $pretitle;?> - <?php echo $_SERVER['sitename'];?></title>
     <meta charset=utf-8>

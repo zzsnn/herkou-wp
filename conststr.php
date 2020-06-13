@@ -526,6 +526,10 @@ $constStr = [
         'ko-kr' => '업로드 링크 받기',
         'fa' => 'دریافت لینک آپلود',
     ],
+    'Calculate' => [
+        'en-us' => 'Calculate',
+        'zh-cn' => '计算',
+    ],
     'UpFileTooLarge' => [
         'en-us' => 'The File is too Large!',
         'zh-cn' => '文件过大，终止上传。',
@@ -773,9 +777,9 @@ $constStr = [
         'ko-kr' => '캐시 플러시',
         'fa' => 'رفرش cache',
     ],
-    'VPSnotupdate' => [
-        'en-us' => 'In VPS can not update by a click! run update.sh',
-        'zh-cn' => '在VPS中不能一键更新，可以运行update.sh',
+    'CannotOneKeyUpate' => [
+        'en-us' => 'Can not update by a click! run update.sh',
+        'zh-cn' => '不能一键更新，可以运行update.sh',
     ],
     'QueryBranchs' => [
         'en-us' => 'Query Branchs',

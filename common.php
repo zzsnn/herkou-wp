@@ -277,7 +277,8 @@ function main($path)
                 $oldname = spurlencode($_GET['filename']);
                 $pos = strrpos($oldname, '.');
                 if ($pos>0) $ext = strtolower(substr($oldname, $pos));
-                $oldname = path_format(path_format($_SERVER['list_path'] . path_format($path)) . '/' . $oldname . '.scfupload' );
+                //$oldname = path_format(path_format($_SERVER['list_path'] . path_format($path)) . '/' . $oldname . '.scfupload' );
+                $oldname = path_format(path_format($_SERVER['list_path'] . path_format($path)) . '/' . $oldname);
                 $data = '{"name":"' . $_GET['filemd5'] . $ext . '"}';
                 //echo $oldname .'<br>'. $data;
                 $tmp = MSAPI('PATCH',$oldname,$data,$_SERVER['access_token']);
@@ -830,7 +831,7 @@ function bigfileupload($path)
             $getoldupinfo = json_decode($getoldupinfo_j['body'], true);
             if ( json_decode( curl_request($getoldupinfo['uploadUrl'])['body'], true)['@odata.context']!='' ) return output($getoldupinfo_j['body'], $getoldupinfo_j['stat']);
         }
-        if (!$_SERVER['admin']) $filename = spurlencode( $fileinfo['name'] ) . '.scfupload';
+        //if (!$_SERVER['admin']) $filename = spurlencode( $fileinfo['name'] ) . '.scfupload';
         $response=MSAPI('createUploadSession',path_format($path1 . '/' . $filename),'{"item": { "@microsoft.graph.conflictBehavior": "fail"  }}',$_SERVER['access_token']);
         $responsearry = json_decode($response['body'],true);
         if (isset($responsearry['error'])) return output($response['body'], $response['stat']);
@@ -857,14 +858,12 @@ function adminform($name = '', $pass = '', $path = '')
         return output($html,$statusCode,$header);
     }
     $html .= '
-    <style>body{background-image:linear-gradient(60deg,#343b44 0%,#485563 100%);background-attachment:fixed;color:#343b44}body>div{position:absolute;text-align:center;background-color:rgba(221,221,221,.5);border-radius:20px;width:75vw;max-width:500px;height:350px;margin:auto;top:25%;bottom:50%;left:0;right:0}body>div:hover{box-shadow:3px 3px 6px 3px rgba(0,0,0,.3)}h4{font-size:40px}input{font-size:20px;margin:2%auto;border:#343b44 2px solid;border-radius:10px;padding:10px;height:50px;text-align:center}input:last-of-type{color:#343b44;height:50px;width:80px;font-weight:800}input:hover:last-of-type{cursor:pointer;color:#ddd;background-color:#485563}</style>
     <body>
 	<div>
 	  <center><h4>'.getconstStr('InputPassword').'</h4>
 	  <form action="" method="post">
 		  <div>
-            <input name="password1" type="password"/>
-            </br>
+		    <input name="password1" type="password"/>
 		    <input type="submit" value="'.getconstStr('Login').'">
           </div>
 	  </form>
@@ -1542,11 +1541,10 @@ function EnvOpt($needUpdate = 0)
         }*/
         $response = setConfigResponse( setConfig($tmp, $_SERVER['disk_oprating']) );
         if (api_error($response)) {
-                $html = api_error_msg($response);
-                $title = 'Error';
-            } else {
+            $html = api_error_msg($response);
+            $title = 'Error';
+        } else {
                 //WaitSCFStat();
-                //sleep(3);
             $html .= getconstStr('Success') . '!<br>
 <button onclick="location.href = location.href;">'.getconstStr('Refresh').'</button>';
             $title = getconstStr('Setup');
@@ -1656,9 +1654,24 @@ function EnvOpt($needUpdate = 0)
     }
     $html .= '
 <a href="?AddDisk">'.getconstStr('AddDisk').'</a><br><br>';
-    if (!((isset($_SERVER['USER'])&&$_SERVER['USER']==='qcloud')||(isset($_SERVER['HEROKU_APP_DIR'])&&$_SERVER['HEROKU_APP_DIR']==='/app'))) {
+
+    $canOneKeyUpate = 0;
+    if (isset($_SERVER['USER'])&&$_SERVER['USER']==='qcloud') {
+        $canOneKeyUpate = 1;
+    } elseif (isset($_SERVER['HEROKU_APP_DIR'])&&$_SERVER['HEROKU_APP_DIR']==='/app') {
+        $canOneKeyUpate = 1;
+    } elseif (isset($_SERVER['FC_SERVER_PATH'])&&$_SERVER['FC_SERVER_PATH']==='/var/fc/runtime/php7.2') {
+        $canOneKeyUpate = 1;
+    } else {
+        $tmp = time();
+        if ( mkdir(''.$tmp, 0777) ) {
+            rmdir(''.$tmp);
+            $canOneKeyUpate = 1;
+        }
+    }
+    if (!$canOneKeyUpate) {
         $html .= '
-'.getconstStr('VPSnotupdate').'<br>';
+'.getconstStr('CannotOneKeyUpate').'<br>';
     } else {
         $html .= '
 <form name="updateform" action="" method="post">
@@ -1703,9 +1716,9 @@ function EnvOpt($needUpdate = 0)
         $html .= '<div style="position:relative;word-wrap: break-word;">
         ' . str_replace("\r", '<br>',$_SERVER['github_version']) . '
 </div>';
-    } else {
+    }/* else {
         $html .= getconstStr('NotNeedUpdate');
-    }
+    }*/
     return message($html, getconstStr('Setup'));
 }
 
@@ -1928,8 +1941,9 @@ function render_list($path = '', $files = '')
         }
         if ($_SERVER['is_guestup_path']||( $_SERVER['admin']&&isset($files['folder'])&&$_SERVER['ishidden']<4 )) {
             while (strpos($html, '<!--UploadJsStart-->')) {
-                $html = str_replace('<!--UploadJsStart-->', '', $html);
-                $html = str_replace('<!--UploadJsEnd-->', '', $html);
+                while (strpos($html, '<!--UploadJsStart-->')) $html = str_replace('<!--UploadJsStart-->', '', $html);
+                while (strpos($html, '<!--UploadJsEnd-->')) $html = str_replace('<!--UploadJsEnd-->', '', $html);
+                while (strpos($html, '<!--constStr@Calculate-->')) $html = str_replace('<!--constStr@Calculate-->', getconstStr('Calculate'), $html);
             }
         } else {
             $tmp[1] = 'a';
@@ -2224,9 +2238,9 @@ function render_list($path = '', $files = '')
         //$description .= 'In '.$_SERVER['sitename'];
         $html = str_replace('<!--Description-->', $description, $html);
 
-        while (strpos($html, '<!--base_disk_path-->')) $html = str_replace('<!--base_disk_path-->', $_SERVER['base_disk_path'], $html);
+        while (strpos($html, '<!--base_disk_path-->')) $html = str_replace('<!--base_disk_path-->', (substr($_SERVER['base_disk_path'],-1)=='/'?substr($_SERVER['base_disk_path'],0,-1):$_SERVER['base_disk_path']), $html);
         while (strpos($html, '<!--base_path-->')) $html = str_replace('<!--base_path-->', $_SERVER['base_path'], $html);
-        while (strpos($html, '<!--Path-->')) $html = str_replace('<!--Path-->', str_replace('%23', '#', str_replace('&','&amp;', $path)), $html);
+        while (strpos($html, '<!--Path-->')) $html = str_replace('<!--Path-->', str_replace('%23', '#', str_replace('&','&amp;', path_format($path.'/'))), $html);
         while (strpos($html, '<!--constStr@Home-->')) $html = str_replace('<!--constStr@Home-->', getconstStr('Home'), $html);
 
         $html = str_replace('<!--customCss-->', getConfig('customCss'), $html);
@@ -2366,7 +2380,7 @@ function render_list($path = '', $files = '')
         $html .= $MultiDiskArea . $tmp[1];
         $diskname = getConfig('diskname');
         if ($diskname=='') $diskname = $_SERVER['disktag'];
-        if (strlen($diskname)>15) $diskname = substr($diskname, 0, 12).'...';
+        //if (strlen($diskname)>15) $diskname = substr($diskname, 0, 12).'...';
         while (strpos($html, '<!--DiskNameNow-->')) $html = str_replace('<!--DiskNameNow-->', $diskname, $html);
         
         $tmp = splitfirst($html, '<!--HeadomfStart-->');
@@ -2496,6 +2510,24 @@ function render_list($path = '', $files = '')
         if (!isset($_COOKIE['timezone'])) $html .= str_replace('<!--timezone-->', $_SERVER['timezone'], $tmp[0]);
         $html .= $tmp[1];
         while (strpos($html, '<!--timezone-->')) $html = str_replace('<!--timezone-->', $_SERVER['timezone'], $html);
+
+        while (strpos($html, '{{.RawData}}')) {
+            $str = '[';
+            $i = 0;
+            foreach ($files['children'] as $file) if ($_SERVER['admin'] or !isHideFile($file['name'])) {
+                $tmp = [];
+                $tmp['name'] = $file['name'];
+                $tmp['size'] = size_format($file['size']);
+                $tmp['date'] = time_format($file['lastModifiedDateTime']);
+                $tmp['@time'] = $file['date'];
+                $tmp['@type'] = isset($file['folder'])?'folder':'file';
+                $str .= json_encode($tmp).',';
+            }
+            if ($str == '[') {
+                $str = '';
+            } else $str = substr($str, 0, -1).']';
+            $html = str_replace('{{.RawData}}', base64_encode($str), $html);
+        }
 
         // 最后清除换行
         while (strpos($html, "\r\n\r\n")) $html = str_replace("\r\n\r\n", "\r\n", $html);

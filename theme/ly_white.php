@@ -1,5 +1,4 @@
 
-<!-- theme purenice designed & coded by wendale v1.1 Responsive fixed on May 1st-->
 <!DOCTYPE html>
 <html lang="<?php echo $constStr['language']; ?>">
 <head>
@@ -10,92 +9,59 @@
     <meta name="keywords" content="<?php echo $n_path;?>,<?php if ($p_path!='') echo $p_path.','; echo $_SERVER['sitename'];?>,OneManager,auth_by_逸笙">
     <link rel="icon" href="<?php echo $_SERVER['base_disk_path'];?>favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="<?php echo $_SERVER['base_disk_path'];?>favicon.ico" type="image/x-icon" />
+    &nbsp;
+        <center>
+        <iframe width="300" scrolling="no" height="20" frameborder="0" allowtransparency="true" src="//i.tianqi.com/index.php?c=code&id=11&color=%2300B050&bgc=%23&icon=1&site=10"></iframe>
+        </center>
     <style type="text/css">
-        body{margin:0;padding:0;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:14px;line-height:1em;color:#000;background-color:#F9FAFB;}
-        .topbar{width:100%;height:40px;background-color:#463C6A;}
-        .topbar .login{display:block;line-height:40px;color:#ffffff;margin-left:10%;float:left;}
-        .topbar .login ion-icon{display:block;height:40px;line-height:40px;margin-right:5px;float:left;}
-        .topbar .operate{display:block;line-height:40px;color:#ffffff;margin-left:10%;float:left;}
-        .topbar .operate ul{}
-        .topbar .operate ion-icon{display:block;height:40px;line-height:40px;margin-right:5px;float:left;}
-        a{color:#171D33;cursor:pointer;text-decoration:none;}
-        ion-icon{font-size:15px;vertical-align:middle;}
-        .changelanguage{display:block;height:30px;line-height:30px;float:right;margin-right:10%;margin-top:5px;}
-        .title{text-align:center;margin-top:1rem;letter-spacing:2px;margin-bottom:2rem;}
-        .title a{color:#171D33;line-height:42px;font-size:32px;text-decoration:none}
-        .list-wrapper{width:80%;margin:0 auto;position:relative;}
-        .list-container{position:relative;}
-        .list-header-container{position:relative;width:100%;}
-        .list-header-container a.back-link{position:absolute;float:left;color:#ffffff;display:inline-block;margin:10px;height:40px;width:40px;background:#613EEA;line-height:40px;text-decoration:none;text-align:center;border-radius:20px;box-shadow: 0px 4px 12px rgba(97, 62, 234, 0.5);}
-        .list-header-container a.back-link ion-icon{font-size:20px;}
-        .list-header-container a.back-link:hover{color:white}
-        .list-container,.list-header-container,.list-wrapper,a.back-link:hover,body{color:#24292e}
-        .table-header{display:block;float:left;margin:10px 0 0 60px;height:40px;line-height:40px;text-align:left;font-weight:400;color:#A0A4B0;word-break: break-all;word-wrap: break-word;}
-        .fix{height:60px;}
-        .list-body-container{position:relative;left:0;overflow-x:hidden;overflow-y:auto;box-sizing:border-box;}
-        .more-disk{border-bottom:1px solid #E8E9EC;height:40px;white-space:nowrap;overflow:auto;}
-        .more-disk a{display:block;float:left;width:30%;height:38px;text-align:center;font-weight: bold;font-size: 18px;line-height:38px;color:#A6AAB4; }
-        .more-disk a:hover, .more-disk a[now]{ color: #3B414B;border-bottom:2px solid #FF7D00;}
-        .list-table{width:100%;border-spacing:0;margin-bottom:20px;}
-        .list-table tr{display:block;margin:10px 10px;width:96%;float:left;background:#ffffff;box-shadow: 0px 4px 26px rgba(0, 0, 0, 0.06);border-radius: 6px;}
-        .list-table tr[data-to]:hover{background:#10C971;color:white;}
-        .list-table tr[data-to]:hover a{color:white}
-        .list-table td,.list-table th{display:block;float:left;line-height:60px;text-align:left;}
-        .list-table td button,.list-table th button{cursor:pointer;color:#ffffff;height:30px;background:#FF7D00;padding:0 20px;border-width:0;border-radius:6px;box-shadow: 0px 4px 12px rgba(255, 125, 0, 0.5);}
-        .list-table td.file,.list-table th.file{width:60%;color:#171D33;padding-left:20px;}
-        .list-table td.file ion-icon{float:left;margin-top:22px;margin-right:5px;}
-        .list-table td.file:hover>ion-icon,.list-table td.file:hover .operate>ion-icon{color:#fff;}
-        .list-table td.file a[name="filelist"]{float:left;}
-        .list-table td.file a[name="filelist"] img{border-radius:6px;margin-top:20px;}
-        .list-table td.updated_at,.list-table th.updated_at{width:25%;}
-        .list-table td.size,.list-table th.size{width:10%;}
+        body{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:14px;line-height:1em;color:#000;background-color:#FFF;background-image:url("https://preview.cloud.189.cn/image/imageAction?param=644D1FDF3BCA66793B4EC8743DC719B301697B82B4CF1D65CADA04AE0EDC27272D6F8FAC5BB7C96F9E7B69323C350F5E2B4436C2B61E6C9E6714B04FB2A9F6CEE340D18744E86E16D3FCD63FA6392C05C9BB16ED35833327310E45AB")}
+        a{color:#000;cursor:pointer;text-decoration:none}
+        ion-icon{font-size:15px;vertical-align:bottom}
+        .changelanguage{position:absolute;right:5px;}
+        .title{text-align:center;margin-top:1rem;letter-spacing:2px;margin-bottom:2rem}
+        .title a{color:#000;text-decoration:none}
+        .list-wrapper{width:80%;margin:0 auto 30px;position:relative;box-shadow:0 0 32px 0 rgb(222, 220, 220);border-radius:15px;}
+        .list-container{position:relative;overflow:hidden;border-radius:15px;}
+        .list-header-container{position:relative}
+        .list-header-container a.back-link{color:#000;display:inline-block;position:absolute;font-size:16px;margin:20px 10px;padding:10px 10px;vertical-align:middle;text-decoration:none}
+         a.back-link:hover,body{color:#05f7d5}
+        .list-container,.list-header-container,.list-wrapper,body{color:#000}
+        .table-header{margin:0;border:0 none;padding:30px 60px;text-align:left;font-weight:400;color:#000;background-color:rgba(128, 128, 128, 0.4);word-break: break-all;word-wrap: break-word;}
+        .list-body-container{position:relative;left:0;overflow-x:hidden;overflow-y:auto;box-sizing:border-box;background:rgba(128, 128, 128, 0.4)}
+        .more-disk{margin:0;border:0 none;padding:30px 30px;text-align:left;font-weight:400;color:#000;background-color:rgba(206, 206, 206, 0.88);white-space:nowrap;overflow:auto;}
+        .more-disk a{margin:0 10px;padding:5px;transition-duration: 0.4s;border-radius: 12px; background-color: rgba(0, 0, 0, 0.1); color: #000; border: 2px solid rgba(128, 128, 128, 0.4); }
+        .more-disk a:hover{ background-color: rgba(128, 128, 128, 0.4); color: #FFF; }
+        .list-table{width:100%;padding:0 20px 20px 20px;border-spacing:0}
+        .list-table tr{height:40px}
+        .list-table tr[data-to]:hover{background:rgb(41, 41, 41,0.4);color:#FFF;}
+        .list-table tr[data-to]:hover a[name~="filelist"]{color:#FFF}
+        .list-table tr:first-child{background:rgba(0,0,0,0)}
+        .list-table td,.list-table th{padding:0 10px;text-align:left}
         .list-table .size,.list-table .updated_at{text-align:right}
-        .mask{position:absolute;left:0px;top:0px;width:100%;background-color:#000;filter:alpha(opacity=50);opacity:0.5;z-index:2;}
+        .mask{position:absolute;left:0px;top:0px;width:100%;background-color:#FFF;filter:alpha(opacity=50);opacity:0.5;z-index:2;}
 <?php if ($_SERVER['admin']) { ?>
-        .operate{display:inline-table;margin:0;margin-right:5px;list-style:none;float:left;}
-        .operate ul{position:absolute;display:none;background:#fffaaa;border:0;border-radius:5px;margin:0;padding:0 7px;color:#205D67;z-index:1;box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);}
+        .operate{display:inline-table;margin:0;margin-right:5px;list-style:none}
+        .operate ul{position:absolute;display:none;background:rgba(121, 121, 121, 0.7);border:0px #000000 solid;border-radius:5px;margin:-7px 0 0 0;padding:0 7px;color:#205D67;z-index:1;}
         .operate:hover ul{position:absolute;display:inline-table;}
-        .operate ul li{list-style:none;display:block;line-height:40px;}
-        .list-table tr[data-to]:hover .operate ul li a{color:black}
-        .list-table tr[data-to]:hover .operate ul li a ion-icon{margin-top:12px;}
+        .operate ul li{padding:7px;list-style:none;display:block;}
+        .operate ul li ion-icon{vertical-align:bottom}
 <?php } ?>
-        .operatediv{position:absolute;background-color:#ffffff;z-index:2;border-radius:10px;background-color:#F9FAFB;}
-        .loginstyle{width:250px;height:124px;}
-        .loginstyle input[type="password"]{width:244px;height:40px;margin-top:30px;border-radius:6px;outline:none;border: 2px solid #E8E9EC;text-indent:10px}
-        .loginstyle input[type="password"]::-webkit-input-placeholder { color: #A6AAB4;font-size: 16px;}
-        .loginstyle input[type="submit"]{color:#fff;font-size:16px;width:250px;height:40px;margin-top:5px;border-radius:6px;padding:0;cursor:pointer;background:#FF7D00;border-width:0;box-shadow: 0px 4px 12px rgba(255, 125, 0, 0.5);}
-        .operatediv div{margin:16px;}
-        .operatediv_close{position:absolute;right:15px;top:15px;}
-        .readme{padding:8px;background-color:rgba(245,245,245,0.5);}
+        .operatediv{position:absolute;border:1px #000000;background-color:rgba(0,0,0,0.3);z-index:2;}
+        .operatediv div{margin:16px}
+        .operatediv_close{position:absolute;right:3px;top:3px;}
+        .readme{padding:8px;background-color:rgba(128, 128, 128, 0.4);}
         .markdown-body{padding:20px;text-align:left}
-        
-        .update_notice{position:absolute;color:#A6AAB4;left:10%;margin-top:10px;}
-        .upload_style{height:60px;width:96%;margin:10px;background:#ffffff;box-shadow: 0px 4px 26px rgba(0, 0, 0, 0.06);border-radius: 6px;}
-        .upload_style input[type="file"]{display:block;color:#A6AAB4;float:left;height:38px;margin:20px 0 0 20px;outline:none;font-size:14px;text-align:center;}
-        .upload_style input[type="button"]{display:block;color:#fff;float:right;height:60px;width:160px;outline:none;font-size:16px;background:#613EEA;border-radius:6px;border:0;}
-        .upload_style .list-table tr td{line-height:30px;margin:10px 20px;}
-        .upload_style .list-table tr td button{margin-left:10px;}
         @media only screen and (max-width:480px){
             .title{margin-bottom:24px}
             .list-wrapper{width:95%; margin-bottom:24px;}
             .list-table {padding:8px}
-            .list-table td button,.list-table th button{cursor:pointer;color:#ffffff;height:24px;background:#FF7D00;padding:0 8px;border-width:0;border-radius:6px;box-shadow: 0px 2px 6px rgba(255, 125, 0, 0.5);}
-            .list-table td, .list-table th{white-space:nowrap;overflow:auto;line-height:40px;}
-            .list-table td.file,.list-table th.file{padding-left: 10px;width: 96%;}
-            .size, .updated_at{display:none}
-            .changelanguage{color:#fff;}
-            .list-table td.updated_at,.list-table th.updated_at{width:50%;text-align:left;margin-left:10px;}
-            .list-table td.size,.list-table th.size{width:30%;text-align:left;}
-            .list-table td.file ion-icon{float:left;margin-top:13px;margin-right:5px;}
-            .upload_style input[type="file"]{display:block;color:#A6AAB4;float:left;height:38px;margin:18px 0 0 10px;outline:none;font-size:14px;text-align:center;width:70%;}
-            .upload_style input[type="button"]{display:block;color:#fff;float:right;height:60px;width:25%;outline:none;font-size:16px;background:#613EEA;border-radius:6px;border:0;}
+            .list-table td, .list-table th{white-space:nowrap;overflow:auto;max-width:80px}
         }
-        
     </style>
 </head>
 
 <body>
-    <div class="topbar">
+    <div style="padding:1px">
 <?php
     if (getConfig('admin')!='') if (!$_SERVER['admin']) {
         if (getConfig('adminloginpage')=='') { ?>
@@ -123,10 +89,9 @@
     } ?>
         </select>
     </div>
-
 <?php
     if (isset($_SERVER['needUpdate'])&&$_SERVER['needUpdate']) { ?>
-    <div class="update_notice" style='position:absolute;'><?php echo getconstStr('NeedUpdate'); ?></div>
+    <div style='position:absolute;'><font color='red'><?php echo getconstStr('NeedUpdate'); ?></font></div>
 <?php } ?>
     <h1 class="title">
         <a href="<?php echo $_SERVER['base_path']; ?>"><?php echo $_SERVER['sitename']; ?></a>
@@ -164,7 +129,7 @@
 <?php   } ?>
     <div class="list-wrapper" id="list-div">
         <div class="list-container">
-            <div class="list-header-container fix">
+            <div class="list-header-container">
 <?php
     if ($path !== '/') {
         $current_url = $_SERVER['PHP_SELF'];
@@ -188,9 +153,11 @@
     $pdfurl = false;
     $DPvideo = false;
     if ($_SERVER['is_guestup_path']&&!$_SERVER['admin']) { ?>
-                <div id="upload_div" class="upload_style">
-                    <input id="upload_file" type="file" name="upload_filename" value="<?php echo getconstStr('FileSelected'); ?>">
+                <div id="upload_div" style="margin:10px">
+                <center>
+                    <input id="upload_file" type="file" name="upload_filename">
                     <input id="upload_submit" onclick="preup();" value="<?php echo getconstStr('Upload'); ?>" type="button">
+                <center>
                 </div>
 <?php } else {
         if ($_SERVER['ishidden']<4) {
@@ -258,8 +225,8 @@
                 <table class="list-table" id="list-table">
                     <tr id="tr0">
                         <th class="file"><a onclick="sortby('a');"><?php echo getconstStr('File'); ?></a><?php if (!(isset($_SERVER['USER'])&&$_SERVER['USER']=='qcloud')) { ?>&nbsp;&nbsp;&nbsp;<button onclick="showthumbnails(this);"><?php echo getconstStr('ShowThumbnails'); ?></button><?php } ?>&nbsp;<button onclick="CopyAllDownloadUrl('.download');"><?php echo getconstStr('CopyAllDownloadUrl'); ?></button></th>
-                        <th class="updated_at"><a onclick="sortby('time');"><?php echo getconstStr('EditTime'); ?></a></th>
-                        <th class="size"><a onclick="sortby('size');"><?php echo getconstStr('Size'); ?></a></th>
+                        <th class="updated_at" width="25%"><a onclick="sortby('time');"><?php echo getconstStr('EditTime'); ?></a></th>
+                        <th class="size" width="15%"><a onclick="sortby('size');"><?php echo getconstStr('Size'); ?></a></th>
                     </tr>
                     <!-- Dirs -->
 <?php               //echo json_encode($files['children'], JSON_PRETTY_PRINT);
@@ -381,10 +348,11 @@
                         echo $prepagenext;
                     }
                     if ($_SERVER['admin']) { ?>
-                <div id="upload_div" class="upload_style">
-                    <input id="upload_file" type="file" name="upload_filename"  value="<?php echo getconstStr('FileSelected'); ?>" multiple="multiple">
-                    
+                <div id="upload_div" style="margin:0 0 16px 0">
+                <center>
+                    <input id="upload_file" type="file" name="upload_filename" multiple="multiple">
                     <input id="upload_submit" onclick="preup();" value="<?php echo getconstStr('Upload'); ?>" type="button">
+                </center>
                 </div>
 <?php               }
                 } else {
@@ -534,7 +502,7 @@
     } else {
         if (getConfig('admin')!='') if (getConfig('adminloginpage')=='') { ?>
     <div id="login_div" class="operatediv" style="display:none">
-        <div class="loginstyle">
+        <div style="margin:50px">
             <a onclick="operatediv_close('login')" class="operatediv_close"><?php echo getconstStr('Close'); ?></a>
 	        <center>
 	            <form action="<?php echo isset($_GET['preview'])?'?preview&':'?';?>admin" method="post">
@@ -546,7 +514,56 @@
 	</div>
 <?php   }
     } ?>
-    <div style="color: rgba(247,247,249,0);"><?php echo date("Y-m-d H:i:s")." ".getconstStr('Week')[date("w")]." ".$_SERVER['REMOTE_ADDR'];?></div>
+<center>
+<body>
+    <span id="date1"></span>
+        <script >
+    function $(num1) {
+	return num1<10?"0"+num1:num1;
+}
+function setTime() {
+	var date = new Date();
+	var year = date.getFullYear();
+	var month = date.getMonth()+1;
+	var day = date.getDate();
+	var week = date.getDay();
+	console.log();
+	var hour = date.getHours();
+	var minute = date.getMinutes();
+	var second = date.getSeconds();
+	var time = year+"/"+$(month)+'/'+$(day)+" "+$(hour)+":"+$(minute)+":"+$(second);
+	document.getElementById("date1").innerHTML=time;
+}
+setTime();
+setInterval('setTime()',500);
+</script>
+</body>
+<?php
+$w=date('w'); 
+$week=array( 
+    "0"=>"日）", 
+    "1"=>"一）", 
+    "2"=>"二）", 
+    "3"=>"三）", 
+    "4"=>"四）", 
+    "5"=>"五）", 
+    "6"=>"六）" 
+); 
+echo '（星期'.$week[$w];
+?>
+<?php
+$ip = ($_SERVER["HTTP_VIA"]) ? $_SERVER["HTTP_X_FORWARDED_FOR"] : $_SERVER["REMOTE_ADDR"];
+$ip = ($ip) ? $ip : $_SERVER["REMOTE_ADDR"];
+echo  'IPv4: ' ,$ip, "\n";
+?>
+</center>
+<center>
+<span id="clock"><span>  <!--顶部span的id为clock-->
+<div class="footer_copyright">
+ Copyright © 2019-2020 - <span id="footyear"></span>OneManager Powered_by_逸笙 <em> 本主题（归彼岸云端）版权所有</em>               
+</div>
+</center>
+&nbsp;
 </body>
 <?php if ($files) { ?>
 <?php if (isset($files['children']['head.md'])||isset($files['children']['readme.md'])) { ?><link rel="stylesheet" href="//unpkg.zhimg.com/github-markdown-css@3.0.1/github-markdown.css">
@@ -577,7 +594,7 @@
         e.innerHTML = '/ ';
         for (var i = 1; i < paths.length - 1; i++) {
             var to = path_format(root + paths.slice(0, i + 1).join('/'));
-            e.innerHTML += paths[i] + ' / '
+            e.innerHTML += '<a href="' + to + '">' + paths[i] + '</a> / '
         }
         e.innerHTML += paths[paths.length - 1];
         e.innerHTML = e.innerHTML.replace(/\s\/\s$/, '')

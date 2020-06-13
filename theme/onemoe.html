@@ -23,53 +23,25 @@
     <meta name="description" content="<!--Description-->">
     <link rel="icon" href="<!--base_path-->favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="<!--base_path-->favicon.ico" type="image/x-icon">
-    <style type="text/css">
-        body{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:14px;line-height:1em;color:#000;background-color:#f7f7f9;<!--BackgroundStart-->background-repeat:no-repeat;background-size:cover;background-attachment:fixed;background-image:url("<!--BackgroundUrl-->");<!--BackgroundEnd-->}
-        a{color:#24292e;cursor:pointer;text-decoration:none}
-        ion-icon{font-size:15px;vertical-align:bottom}
-        .changelanguage{position:absolute;right:5px;}
-        .title{text-align:center;margin-top:1rem;letter-spacing:2px;margin-bottom:2rem}
-        .title a{color:#333;text-decoration:none}
-        .list-wrapper{width:80%;margin:0 auto 30px;position:relative;box-shadow:0 0 32px 0 rgb(128,128,128);border-radius:15px;}
-        .list-container{position:relative;overflow:hidden;border-radius:15px;}
-        .list-header-container{position:relative}
-        .list-header-container a.back-link{color:#000;display:inline-block;position:absolute;font-size:16px;margin:20px 10px;padding:10px 10px;vertical-align:middle;text-decoration:none}
-        .list-container,.list-header-container,.list-wrapper,a.back-link:hover,body{color:#24292e}
-        .table-header{margin:0;border:0 none;padding:30px 60px;text-align:left;font-weight:400;color:#000;background-color:rgba(245,245,245,0.5);word-break: break-all;word-wrap: break-word;}
-        .list-body-container{position:relative;left:0;overflow-x:hidden;overflow-y:auto;box-sizing:border-box;background:rgba(245,245,245,0.5)}
-        .more-disk{margin:0;border:0 none;padding:30px 30px;text-align:left;font-weight:400;color:#000;background-color:rgba(245,245,245,0.5);white-space:nowrap;overflow:auto;}
-        .more-disk a{margin:0 10px;padding:5px;transition-duration: 0.4s;border-radius: 12px; background-color: white; color: black; border: 2px solid rgba(85,85,85,0.7); }
-        .more-disk a:hover, .more-disk a[now]{ background-color: rgba(85,85,85,0.7); color: white; }
-        .list-table{width:100%;padding:0 20px 20px 20px;border-spacing:0}
-        .list-table tr{height:40px}
-        .list-table tr[data-to]:hover{background:rgba(85,85,85,0.7);color:white;}
-        .list-table tr[data-to]:hover a{color:white}
-        .list-table tr:first-child{background:rgba(245,245,245,0)}
-        .list-table td,.list-table th{padding:0 10px;text-align:left}
-        .list-table .size,.list-table .updated_at{text-align:right}
-        .updated_at{width:25%}
-        .size{width:15%}
-        .mask{position:absolute;left:0px;top:0px;width:100%;background-color:#000;filter:alpha(opacity=50);opacity:0.5;z-index:2;}
-<!--AdminStart-->
-        .operate{display:inline-table;margin:0;margin-right:5px;list-style:none}
-        .operate ul{position:absolute;display:none;background:#fffaaa;border:0px #f7f7f7 solid;border-radius:5px;margin:-7px 0 0 0;padding:0 7px;color:#205D67;z-index:1;}
-        .operate:hover ul{position:absolute;display:inline-table;}
-        .operate ul li{padding:7px;list-style:none;display:block;}
-        .list-table tr[data-to]:hover .operate ul li a{color:black}
-<!--AdminEnd-->
-        .operatediv{position:absolute;border:1px #CCCCCC;background-color:#FFFFCC;z-index:2;}
-        .operatediv div{margin:16px}
-        .operatediv_close{position:absolute;right:3px;top:3px;}
-        .readme{padding:8px;background-color:rgba(245,245,245,0.5);}
-        .markdown-body, .customfile{padding:20px;text-align:left}
-        @media only screen and (max-width:480px){
-            .title{margin-bottom:24px}
-            .list-wrapper{width:95%; margin-bottom:24px;}
-            .list-table {padding:8px}
-            .list-table td, .list-table th{white-space:nowrap;overflow:auto;max-width:80px}
-            .size, .updated_at{display:none}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kizx/onemoe-theme/onemoe.min.css" type="text/css" />
+    <!--BackgroundStart-->
+    <style>
+        body {
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position-x: center;
+            background-image: url("<!--BackgroundUrl-->");
         }
     </style>
+	<!--BackgroundEnd-->
+	<script type="text/javascript">
+    if (window.console && window.console.log) {
+        console.log("%c Onemoe Theme %c https://github.com/kizx/onemoe-theme ",
+            "color: #fff; margin: 1em 0; padding: 5px 0; background: #673ab7;",
+            "margin: 1em 0; padding: 5px 0; background: #efefef;");
+    }
+    </script>
     <!--customCss-->
 </head>
 
@@ -151,7 +123,7 @@
                     <ion-icon name="arrow-back"></ion-icon>
                 </a>
 <!--BackArrowEnd-->
-                <h3 class="table-header"><!--PathArrayStart--> / <a href="<!--PathArrayLink-->"><!--PathArrayName--></a><!--PathArrayEnd--></h3>
+                <h3 class="table-header"><!--Path--></h3>
             </div>
             <div class="list-body-container">
 <!--EncryptedStart-->
@@ -480,7 +452,7 @@
         location.href = location.href;
     }
 <!--ListStart-->
-    /*var root = '<!--base_disk_path-->';
+    var root = '<!--base_disk_path-->';
     function path_format(path) {
         path = '/' + path + '/';
         while (path.indexOf('//') !== -1) {
@@ -500,7 +472,7 @@
         }
         e.innerHTML += paths[paths.length - 1];
         e.innerHTML = e.innerHTML.replace(/\s\/\s$/, '')
-    });*/
+    });
 <!--IsFileStart-->
     var $url = document.getElementById('url');
     if ($url) {
@@ -821,55 +793,20 @@
             tr1.setAttribute('data-to',1);
             var td1=document.createElement('td');
             tr1.appendChild(td1);
-            td1.setAttribute('style','width:30%;word-break:break-word;');
+            td1.setAttribute('style','width:30%');
             td1.setAttribute('id','upfile_td1_'+timea+'_'+i);
             td1.innerHTML=(file.webkitRelativePath||file.name)+'<br>'+size_format(file.size);
             var td2=document.createElement('td');
             tr1.appendChild(td2);
             td2.setAttribute('id','upfile_td2_'+timea+'_'+i);
+            td2.innerHTML='<!--constStr@GetUploadLink--> ...';
             if (file.size>100*1024*1024*1024) {
                 td2.innerHTML='<font color="red"><!--constStr@UpFileTooLarge--></font>';
                 uploadbuttonshow();
                 return;
             }
-            upbigfilename = encodeURIComponent((file.webkitRelativePath||file.name));
-<!--GuestStart-->
-            function getext(str) {
-                strarry=str.split('.');
-                ext=strarry[strarry.length-1].toLowerCase();
-                var reg = new RegExp(".","g");
-                var a = str.replace(reg,"");
-                if (a == ext) ext = "";
-                else ext = "." + ext;
-                return ext;
-            }
-        var ext = getext(file.webkitRelativePath||file.name);
-        var spark = new SparkMD5.ArrayBuffer();
-        var reader = new FileReader();
-        var chunksize=10*1024*1024;
-        var asize = 0;
-        function readblob(start) {
-            var end=start+chunksize;
-            var blob = file.slice(start,end);
-            reader.readAsArrayBuffer(blob);
-        }
-        readblob(asize);
-
-        reader.onload = function(e){
-            td2.innerHTML='<!--constStr@Calculate--> md5: '+(asize*100/file.size).toFixed(2)+'%';
-            var binary = this.result;
-            spark.append(binary);
-            asize += chunksize;
-            if (asize < file.size) {
-                readblob(asize);
-            } else {
-                var filemd5 = spark.end();
-                td2.innerHTML='md5: '+filemd5;
-                upbigfilename = filemd5+ext;
-<!--GuestEnd-->
-            td2.innerHTML='<!--constStr@GetUploadLink--> ...';
             var xhr1 = new XMLHttpRequest();
-            xhr1.open("GET", '?action=upbigfile&upbigfilename='+ upbigfilename +'&filesize='+ file.size +'&lastModified='+ file.lastModified);
+            xhr1.open("GET", '?action=upbigfile&upbigfilename='+ encodeURIComponent((file.webkitRelativePath||file.name)) +'&filesize='+ file.size +'&lastModified='+ file.lastModified);
             xhr1.setRequestHeader('x-requested-with','XMLHttpRequest');
             xhr1.send(null);
             xhr1.onload = function(e){
@@ -882,23 +819,14 @@
                         uploadbuttonshow();
                     } else {
                         td2.innerHTML='<!--constStr@UploadStart--> ...';
-                        binupfile(file,html['uploadUrl'],timea+'_'+i, upbigfilename);
+                        binupfile(file,html['uploadUrl'],timea+'_'+i);
                     }
-                }
-                if (xhr1.status==409) {
-                    td2.innerHTML='md5: '+filemd5;
-                    tdnum = timea+'_'+i;
-                    document.getElementById('upfile_td1_'+tdnum).innerHTML='<div style="color:green"><a href="<!--base_disk_path--><!--Path-->'+upbigfilename+'?preview" id="upfile_a_'+tdnum+'" target="_blank">'+document.getElementById('upfile_td1_'+tdnum).innerHTML+'</a><br><a href="<!--base_disk_path--><!--Path-->'+upbigfilename+'" id="upfile_a1_'+tdnum+'"></a><!--constStr@UploadComplete--><button onclick="CopyAllDownloadUrl(\'#upfile_a1_'+tdnum+'\');" id="upfile_cpbt_'+tdnum+'" <!--AdminStart--> style="display:none"<!--AdminEnd--> ><!--constStr@CopyUrl--></button></div>';
                 }
                 if (i<files.length-1) {
                     i++;
                     getuplink(i);
                 }
             }
-<!--GuestStart-->
-            }
-        }
-<!--GuestEnd-->
         }
     }
     function size_format(num) {
@@ -919,7 +847,7 @@
         }
         return num.toFixed(2) + ' GB';
     }
-    function binupfile(file,url,tdnum,filename){
+    function binupfile(file,url,tdnum){
         var label=document.getElementById('upfile_td2_'+tdnum);
         var reader = new FileReader();
         var StartStr='';
@@ -940,7 +868,9 @@
                     var a = html['nextExpectedRanges'][0];
                     newstartsize = Number( a.slice(0,a.indexOf("-")) );
                     StartTime = new Date();
+<!--AdminStart-->
                     asize = newstartsize;
+<!--AdminEnd-->
                     if (newstartsize==0) {
                         StartStr='<!--constStr@UploadStartAt-->:' +StartTime.toLocaleString()+'<br>' ;
                     } else {
@@ -954,9 +884,19 @@
                         reader.readAsArrayBuffer(blob);
                     }
                     readblob(asize);
-
+<!--GuestStart-->
+                    var spark = new SparkMD5.ArrayBuffer();
+<!--GuestEnd-->
                     reader.onload = function(e){
                         var binary = this.result;
+<!--GuestStart-->
+                        spark.append(binary);
+                        if (asize < newstartsize) {
+                            asize += chunksize;
+                            readblob(asize);
+                            return;
+                        }
+<!--GuestEnd-->
                         var xhr = new XMLHttpRequest();
                         xhr.open("PUT", url, true);
                         //xhr.setRequestHeader('x-requested-with','XMLHttpRequest');
@@ -977,12 +917,38 @@
                             if (response['size']>0) {
                                 // contain size, upload finish. 有size说明是最终返回，上传结束
                                 var xhr3 = new XMLHttpRequest();
-                                xhr3.open("GET", '?action=del_upload_cache&filelastModified='+file.lastModified+'&filesize='+file.size+'&filename='+filename);
+                                xhr3.open("GET", '?action=del_upload_cache&filelastModified='+file.lastModified+'&filesize='+file.size+'&filename='+encodeURIComponent((file.webkitRelativePath||file.name)));
                                 xhr3.setRequestHeader('x-requested-with','XMLHttpRequest');
                                 xhr3.send(null);
                                 xhr3.onload = function(e){
                                     console.log(xhr3.responseText+','+xhr3.status);
                                 }
+<!--GuestStart-->
+                                var filemd5 = spark.end();
+                                var xhr4 = new XMLHttpRequest();
+                                xhr4.open("GET", '?action=uploaded_rename&filename='+encodeURIComponent((file.webkitRelativePath||file.name))+'&filemd5='+filemd5);
+                                xhr4.setRequestHeader('x-requested-with','XMLHttpRequest');
+                                xhr4.send(null);
+                                xhr4.onload = function(e){
+                                    console.log(xhr4.responseText+','+xhr4.status);
+                                    var filename;
+                                    //if (xhr4.status==200) filename = JSON.parse(xhr4.responseText)['name'];
+                                    //if (xhr4.status==409) filename = filemd5 + (file.webkitRelativePath||file.name).substr((file.webkitRelativePath||file.name).indexOf('.'));
+                                    filename = JSON.parse(xhr4.responseText)['name'];
+                                    if (filename=='') {
+                                        alert('<!--constStr@UploadErrorUpAgain-->');
+                                        uploadbuttonshow();
+                                        return;
+                                    }
+                                    var lasturl = location.href;
+                                    if (lasturl.substr(lasturl.length-1)!='/') lasturl += '/';
+                                    lasturl += filename + '?preview';
+                                    //window.open(lasturl);
+                                    document.getElementById('upfile_a_'+tdnum).href = lasturl;
+                                    document.getElementById('upfile_a1_'+tdnum).href = filename;
+                                    document.getElementById('upfile_cpbt_'+tdnum).style.display = "";
+                                }
+<!--GuestEnd-->
                                 EndTime=new Date();
                                 MiddleStr = '<!--constStr@EndAt-->:'+EndTime.toLocaleString()+'<br>';
                                 if (newstartsize==0) {
@@ -1010,7 +976,7 @@
                         xhr.send(binary);
                     }
                 } else {
-                    if (window.location.pathname.indexOf('%23')>0||filename.indexOf('%23')>0) {
+                    if (window.location.pathname.indexOf('%23')>0||(file.webkitRelativePath||file.name).indexOf('%23')>0) {
                         label.innerHTML='<font color="red"><!--constStr@UploadFail23--></font>';
                     } else {
                         label.innerHTML='<font color="red">'+xhr2.responseText+'</font>';
