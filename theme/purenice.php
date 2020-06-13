@@ -2,6 +2,15 @@
 <!-- theme purenice designed & coded by wendale v1.1 Responsive fixed on May 1st-->
 <!DOCTYPE html>
 <html lang="<?php echo $constStr['language']; ?>">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?269c55d09d31b7ca60586a52d9845ca2";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
 <head>
     <title><?php echo $pretitle; if ($_SERVER['base_disk_path']!=$_SERVER['base_path']) { if (getConfig('diskname')!='') $diskname = getConfig('diskname'); else $diskname = $_SERVER['disktag']; echo ' - ' . $diskname; } ?> - <?php echo $_SERVER['sitename'];?></title>
     <meta charset=utf-8>
@@ -13,14 +22,14 @@
     <style type="text/css">
         body{margin:0;padding:0;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:14px;line-height:1em;color:#000;background-color:#F9FAFB;}
         .topbar{width:100%;height:40px;background-color:#463C6A;}
-        .topbar .login{display:block;line-height:40px;color:#ffffff;margin-left:10%;float:left;}
+        .topbar .login{display:block;line-height:40px;color:#ffffff;margin-left:2%;float:left;}
         .topbar .login ion-icon{display:block;height:40px;line-height:40px;margin-right:5px;float:left;}
-        .topbar .operate{display:block;line-height:40px;color:#ffffff;margin-left:10%;float:left;}
+        .topbar .operate{display:block;line-height:40px;color:#ffffff;margin-left:2%;float:left;}
         .topbar .operate ul{}
         .topbar .operate ion-icon{display:block;height:40px;line-height:40px;margin-right:5px;float:left;}
         a{color:#171D33;cursor:pointer;text-decoration:none;}
         ion-icon{font-size:15px;vertical-align:middle;}
-        .changelanguage{display:block;height:30px;line-height:30px;float:right;margin-right:10%;margin-top:5px;}
+        .changelanguage{display:block;height:30px;line-height:30px;float:right;margin-right:2%;margin-top:5px;}
         .title{text-align:center;margin-top:1rem;letter-spacing:2px;margin-bottom:2rem;}
         .title a{color:#171D33;line-height:42px;font-size:32px;text-decoration:none}
         .list-wrapper{width:80%;margin:0 auto;position:relative;}
